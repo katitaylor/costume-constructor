@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Costume = require('../../../models/costume');
+var theme = require('../../../models/costume');
 
 // "Index" action to list all themes
 router.get('/', function(req, res) {

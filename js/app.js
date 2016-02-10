@@ -23,7 +23,7 @@ $(function() {
     var display = function() {
         $.ajax({
                 method: "GET",
-                url: costumeApiRoot, "api/v1/costumes"
+                url: costumeApiRoot + "api/v1/costumes"
                 data: {},
                 dataType: "JSON"
             })
@@ -40,47 +40,47 @@ $(function() {
             });
           };
 
-    // Make a new doughnut
+    // // Make a new doughnut
 
-    $('#new-doughnut').submit(function() {
-        var flavor = $("#doughnut-flavor").val();
-        var style = $("#doughnut-style").val();
+    // $('#new-doughnut').submit(function() {
+    //     var flavor = $("#doughnut-flavor").val();
+    //     var style = $("#doughnut-style").val();
 
-        var jqxhr = $.ajax({
-                url: costumeApiRoot,
-                method: "POST",
-                data: {
-                    style: style,
-                    flavor: flavor
-                },
-                dataType: "json"
-            })
-            .done(function(doughnut) {
-                console.log('Successfully saved: ', doughnut);
+    //     var jqxhr = $.ajax({
+    //             url: costumeApiRoot,
+    //             method: "POST",
+    //             data: {
+    //                 style: style,
+    //                 flavor: flavor
+    //             },
+    //             dataType: "json"
+    //         })
+    //         .done(function(doughnut) {
+    //             console.log('Successfully saved: ', doughnut);
 
-                addDoughnutToList($('#doughnuts'), doughnut.style, doughnut.flavor);
-            })
+    //             addDoughnutToList($('#doughnuts'), doughnut.style, doughnut.flavor);
+    //         })
 
-        console.log(style, flavor);
-        return false;
-    });
+    //     console.log(style, flavor);
+    //     return false;
+    // });
 
-    display();
+    // display();
 
 
-    // Delete a doughut
+    // // Delete a doughut
 
-    function deleteDoughnut(item) {
-        var jqxhr = $.ajax({
-                url: doughnutApiRoot + "id",
-                method: "DELETE",
-                data: {},
-                dataType: "json"
-            })
-            .done(function(doughnut) {
-                // console.log('Successfully deleted: ', item.text());
-                item.remove();
-            });
-    };
+    // function deleteDoughnut(item) {
+    //     var jqxhr = $.ajax({
+    //             url: doughnutApiRoot + "id",
+    //             method: "DELETE",
+    //             data: {},
+    //             dataType: "json"
+    //         })
+    //         .done(function(doughnut) {
+    //             // console.log('Successfully deleted: ', item.text());
+    //             item.remove();
+    //         });
+    // };
 
 });

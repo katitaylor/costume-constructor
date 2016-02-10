@@ -1,16 +1,18 @@
 var express = require('express');
 var router = express.Router();
-// var Costume = require('../models/costume');
+var Theme = require('../models/theme');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', {
-        title: 'Costume Construction Zone!',
-        theme: Theme.find({}, function(err, themes) {
-            // themes is an array from db
+    Theme.find({}, function(err, results) {
+        res.render('index', {
+            title: 'Costume Construction Zone!',
+            theme: results
         });
     });
+
 });
+
 
 // /* POST costume. */
 // router.post('/', function(req, res, next) {
