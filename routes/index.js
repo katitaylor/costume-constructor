@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Theme = require('../models/theme');
+var Costume = require('../models/costume');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,6 +12,17 @@ router.get('/', function(req, res, next) {
             themes: results
         });
     });
+
+});
+
+router.get('/:id', function(req, res) {
+  Costume.find({ _id: req.params.id }, function(err, costume) {
+    if (err) {
+      console.log(err);
+      throw err;
+    }
+    res.status(200).json(costume);
+  });
 
 });
 

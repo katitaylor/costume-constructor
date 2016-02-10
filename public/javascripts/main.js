@@ -3,6 +3,31 @@
 $(function() {
   var costumeApiRoot = '/api/v1/costumes';
 
+
+      $('#your-costume').submit(function() {
+        var wearer = $("#costume-wearer").val();
+        var theme = $("#costume-theme").val();
+
+        var jqxhr = $.ajax({
+                url: costumeApiRoot,
+                method: "GET",
+                data: {
+                    wearer: wearer,
+                    theme: theme
+                },
+                dataType: "json"
+            })
+            .done(function(costume) {
+                console.log('Successfully found: ', costume);
+                display($('#your-costume'), newCostume);
+            })
+
+        console.log(newCostume);
+        return false;
+    });
+
+    display();
+
   //Add costume function
 
   // function to replace :: $('#costume').append('<li>' + costume.theme + ' - ' + costume.wearer + '</li>');
@@ -29,12 +54,14 @@ $(function() {
   //         })
   //         .done(function(data) {
   //             console.log(data);
- // note :: used directly in index.ejs because
+
+ // note :: used for loop directly in index.ejs because result is needed upon load so no reason to create an additional AJAX call for data.
 
   //             for (var i = 0; i < data.length; i++) {
   //                 var theme = data[i]
   //                 addThemeToDropdown($('#theme'), costume.theme);
-  //                 // line 34, does this need wearer since only themes in dropdown?
+
+  //                 // line 34, does this need wearer since only themes in dropdown (edit: totally unecessary in this section, as was section!)?
   //             };
   //         })
   //         .fail(function(jqXHR, textStatus) {

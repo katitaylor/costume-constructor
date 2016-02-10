@@ -15,7 +15,7 @@
 
 // });
 
-// // "Show" action to show one costume
+// "Show" action to show one costume
 // router.get('/:id', function(req, res) {
 
 //   Costume.findOne({ _id: req.params.id }, function(err, costume) {
@@ -28,14 +28,22 @@
 
 // });
 
-// // "Create" action to create a new costume
-// router.post('/', function(req, res) {
+// "Create" action to create a new costume
+router.post('/', function(req, res) {
 
-//   var costume = new Costume({
-//     theme: req.body.theme,
-//     wearer: req.body.wearer,
-//     image: req.body.image,
-//   });
+  var costume = {
+    theme: req.body.theme,
+    wearer: req.body.wearer
+  };
+  Costume.find(costume, function(err, costumes) {
+  if (err) console.log(err);
+  console.log(results);
+});
+
+  // res.render("index.ejs", costume)
+
+
+
 
 //   costume.save(function(err, costume) {
 //     if (err) {
