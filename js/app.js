@@ -1,26 +1,39 @@
 // jQuery Document Ready
 // Wait until the DOM is ready
 $(function() {
-    var costumeApiRoot = 'https://api.doughnuts.ga/doughnuts/';
+    var costumeApiRoot = '../routes/api/v1/costumes';
 
-    // List the doughnuts
+        //Add costume function
+
+// function to replace :: $('#costume').append('<li>' + costume.theme + ' - ' + costume.wearer + '</li>');
+    function addThemeToDropdown() {
+        var listItem = $(+ theme + );
+        listItem.click(function(event) {
+            themesList.prepend(listItem);
+        });
+
+    };
+
+    // Static drop down of wearer in html
+    // Dynamic drop down of themes from db
+    // Select one from each
+    // Submit to query db
+    // DB returns costume options
+
     var display = function() {
         $.ajax({
                 method: "GET",
-                url: doughnutApiRoot,
+                url: costumeApiRoot, "api/v1/costumes"
                 data: {},
                 dataType: "JSON"
             })
             .done(function(data) {
                 console.log(data);
                 for (var i = 0; i < data.length; i++) {
-                    var doughnut = data[i]
-                    addDoughnutToList($('#doughnuts'), doughnut.style, doughnut.flavor);
-                    // $('#doughnuts').append('<li>' + doughnut.style + ' - ' + doughnut.flavor + '</li>');
+                    var theme = data[i]
+                    addThemeToDropdown($('#theme'), costume.theme);
+                    // line 34, does this need wearer since only themes in dropdown?
                 };
-                // $('#doughnuts li').on("click", function(doughnut) {
-                //     deleteDoughnut($(this));
-                // });
             })
             .fail(function(jqXHR, textStatus) {
                 alert("error: " + textStatus);
@@ -34,7 +47,7 @@ $(function() {
         var style = $("#doughnut-style").val();
 
         var jqxhr = $.ajax({
-                url: doughnutApiRoot,
+                url: costumeApiRoot,
                 method: "POST",
                 data: {
                     style: style,
@@ -54,15 +67,7 @@ $(function() {
 
     display();
 
-    //Add doughnut function
 
-    function addDoughnutToList(doughnutsList, style, flavor) {
-        var listItem = $('<li>' + style + ' - ' + flavor + '</li>');
-        listItem.click(function(event) {
-            deleteDoughnut(listItem);
-        });
-        doughnutsList.prepend(listItem);
-    };
     // Delete a doughut
 
     function deleteDoughnut(item) {

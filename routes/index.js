@@ -4,11 +4,17 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Costume Construction Zone!' });
+    res.render('index', {
+        title: 'Costume Construction Zone!',
+        theme: Theme.find({}, function(err, themes) {
+            // themes is an array from db
+        });
+    });
 });
 
-/* POST costume. */
-router.post('/', function(req, res, next) {
-  res.render('costumes', { theme: wearer: });
-});
+// /* POST costume. */
+// router.post('/', function(req, res, next) {
+//   res.render('costume', );
+// });
 
+module.exports = router; // added to try to troubleshoot err_refused

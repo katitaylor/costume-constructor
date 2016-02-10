@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var Costume = require('../../../models/costume');
 
-// "Index" action to list all costumes
+// "Index" action to list all themes
 router.get('/', function(req, res) {
 
-  Costume.find({}, function(err, results) {
+  Theme.find({}, function(err, results) {
     if (err) {
       console.log(err);
       throw err;
@@ -32,8 +32,8 @@ router.get('/:id', function(req, res) {
 router.post('/', function(req, res) {
 
   var costume = new Costume({
-    theme: req.body.artist,
-    wearer: req.body.venue,
+    theme: req.body.theme,
+    wearer: req.body.wearer,
     image: req.body.image,
   });
 

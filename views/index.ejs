@@ -23,23 +23,25 @@
                     <option value="Couple">Couple</option>
                 </select>
                 <select name="costume[theme]" id="theme" placeholder="I might like ...">
+                    <!-- options will be dynamically generated from DB -->
                     <option value="Fairytale">Fairytale</option>
                     <option value="Animal">Animal</option>
                     <option value="Post-apocalyptic">Post-apocalyptic</option>
                 </select>
 
+console.log(process.env.DB_CONN) <!-- added to check connectivity -->
             <!--    button -->
 
 
             <p>  <div class="btn">
                 <div class="btn-back">
-                    <p>Are you sure you want to do that?</p>
-                    <button class="yes">Yes</button>
-                    <button class="no">No</button>
+                    <p>Who will you be?</p>
+                    <button class="yes">I'm ready!</button>
+                    <button class="no">Not so much</button>
                 </div>
-                <div class="btn-front">Delete</div>
+                <div class="btn-front">Nevermind.</div>
     </div>
-<!--     <p class="description">Try clicking different sides of the button – <a href="http://lab.hakim.se/" target="_blank">lab.hakim.se</a></p>
+<!--     <button source: <a href="http://lab.hakim.se/" target="_blank">lab.hakim.se</a></p>
  -->
     </form>
 </body>

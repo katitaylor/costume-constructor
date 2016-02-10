@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var costumeSchema = new mongoose.Schema({
   costume: { type: String, required: true },
   wearer: { type: String, required: true, unique: true },
-  theme: { type: String}
+  theme: { type: String, required: true}
 });
 
 var Costume = mongoose.model('Costume', costumeSchema);
