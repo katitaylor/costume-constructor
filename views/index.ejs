@@ -24,12 +24,15 @@
                 </select>
                 <select name="costume[theme]" id="theme-menu" placeholder="I might like ...">
                     <!-- options will be dynamically generated from DB -->
-                    <option value="Fairytale">Fairytale</option>
+                    <% for (var i = 0; i < themes.length; i++) { %>
+                      <option><%= themes[i].theme %></option>
+                    <% } %>
+
+                   <!--  <option value="Fairytale">Fairytale</option>
                     <option value="Animal">Animal</option>
-                    <option value="Post-apocalyptic">Post-apocalyptic</option>
+                    <option value="Post-apocalyptic">Post-apocalyptic</option>-->
                 </select>
 
-console.log(process.env.DB_CONN) <!-- added to check connectivity -->
             <!--    button -->
 
 

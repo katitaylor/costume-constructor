@@ -1,79 +1,79 @@
-var express = require('express');
-var router = express.Router();
-var theme = require('../../../models/costume');
+// var express = require('express');
+// var router = express.Router();
+// var theme = require('../../../models/costume');
 
-// "Index" action to list all themes
-router.get('/', function(req, res) {
+// // "Index" action to list all themes
+// router.get('/', function(req, res) {
 
-  Theme.find({}, function(err, results) {
-    if (err) {
-      console.log(err);
-      throw err;
-    }
-    res.status(200).json(results);
-  });
+//   Theme.find({}, function(err, results) {
+//     if (err) {
+//       console.log(err);
+//       throw err;
+//     }
+//     res.status(200).json(results);
+//   });
 
-});
+// });
 
-// "Show" action to show one costume
-router.get('/:id', function(req, res) {
+// // "Show" action to show one costume
+// router.get('/:id', function(req, res) {
 
-  Costume.findOne({ _id: req.params.id }, function(err, costume) {
-    if (err) {
-      console.log(err);
-      throw err;
-    }
-    res.status(200).json(costume);
-  });
+//   Costume.findOne({ _id: req.params.id }, function(err, costume) {
+//     if (err) {
+//       console.log(err);
+//       throw err;
+//     }
+//     res.status(200).json(costume);
+//   });
 
-});
+// });
 
-// "Create" action to create a new costume
-router.post('/', function(req, res) {
+// // "Create" action to create a new costume
+// router.post('/', function(req, res) {
 
-  var costume = new Costume({
-    theme: req.body.theme,
-    wearer: req.body.wearer,
-    image: req.body.image,
-  });
+//   var costume = new Costume({
+//     theme: req.body.theme,
+//     wearer: req.body.wearer,
+//     image: req.body.image,
+//   });
 
-  costume.save(function(err, costume) {
-    if (err) {
-      console.log(err);
-      throw err;
-    }
-    res.status(200).json(costume);
-  });
-});
+//   costume.save(function(err, costume) {
+//     if (err) {
+//       console.log(err);
+//       throw err;
+//     }
+//     res.status(200).json(costume);
+//   });
+// });
 
-// Action to create a new costume
-router.put('/:id', function(req, res) {
+// // Action to create a new costume
+// router.put('/:id', function(req, res) {
 
-  Costume.findByIdAndUpdate(req.params.id, {
-    theme: req.body.artist,
-    wearer: req.body.venue,
-    image: req.body.image,
-  }, function(err, costume) {
-    if (err) {
-      console.log(err);
-      throw err;
-    }
+//   Costume.findByIdAndUpdate(req.params.id, {
+//     theme: req.body.artist,
+//     wearer: req.body.venue,
+//     image: req.body.image,
+//   }, function(err, costume) {
+//     if (err) {
+//       console.log(err);
+//       throw err;
+//     }
 
-    res.json(costume);
-  });
+//     res.json(costume);
+//   });
 
-});
+// });
 
-router.delete('/:id', function(req, res) {
+// router.delete('/:id', function(req, res) {
 
-  Costume.findByIdAndRemove(req.params.id, function(err) {
-    if (err) {
-      console.log(err);
-      throw err;
-    }
-    res.status(200).json({});
-  });
+//   Costume.findByIdAndRemove(req.params.id, function(err) {
+//     if (err) {
+//       console.log(err);
+//       throw err;
+//     }
+//     res.status(200).json({});
+//   });
 
-});
+// });
 
-module.exports = router;
+// module.exports = router;

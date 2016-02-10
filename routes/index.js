@@ -5,13 +5,15 @@ var Theme = require('../models/theme');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     Theme.find({}, function(err, results) {
+        if (err) throw err;
         res.render('index', {
             title: 'Costume Construction Zone!',
-            theme: results
+            themes: results
         });
     });
 
 });
+
 
 
 // /* POST costume. */
