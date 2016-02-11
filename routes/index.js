@@ -15,16 +15,17 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.get('/:id', function(req, res) {
-  Costume.find({ _id: req.params.id }, function(err, costume) {
-    if (err) {
-      console.log(err);
-      throw err;
-    }
-    res.status(200).json(costume);
-  });
-
+router.post('/:id', function(req, res) {
+    Costume.find({
+        _id: req.params.id
+    }, function(err, costume) {
+        if (err) throw err;
+        res.render('index', {
+            costume: results
+        });
+    });
 });
+
 
 
 
