@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var theme = require('../../../models/costume');
 
-router.post('/', function(req, res) {
+router.get('/:id', function(req, res) {
 
     var costume = {
         theme: req.body.theme,

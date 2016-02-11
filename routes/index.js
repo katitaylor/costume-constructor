@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.post('/:id', function(req, res) {
+router.get('/:id', function(req, res) {
     Costume.find({
         _id: req.params.id
     }, function(err, costume) {
