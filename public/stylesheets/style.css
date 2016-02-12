@@ -38,7 +38,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
-
+/*
 .description {
   margin-top: 50px;
   text-align: center;
@@ -179,5 +179,5 @@ body {
 .btn[data-direction="left"].is-open {
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
-}
-*/
+}*/
+/*

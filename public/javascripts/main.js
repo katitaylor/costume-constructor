@@ -1,34 +1,30 @@
 // jQuery Document Ready
 // Wait until the DOM is ready
 $(function() {
-  var costumeApiRoot = '/api/v1/costumes';
+    var costumeApiRoot = '/api/v1/costumes';
 
+  $('#your-costume').submit(function() {
+      var wearer = $("#costume-wearer").val();
+      var theme = $("#costume-theme").val();
 
-      $('#your-costume').submit(function() {
-        var wearer = $("#costume-wearer").val();
-        var theme = $("#costume-theme").val();
+      var jqxhr = $.ajax({
+              url: costumeApiRoot,
+              method: "GET",
+              data: {
+                  wearer: wearer,
+                  theme: theme
+              },
+              dataType: "json"
+          })
+          .done(function(data) {
+              // $("#costume").append(data);
+              console.log(data);
 
-        var jqxhr = $.ajax({
-                url: costumeApiRoot,
-                method: "GET",
-                data: {
-                    wearer: wearer,
-                    theme: theme
-                },
-                dataType: "json"
-            })
-            .done(function(costume) {
-                console.log('Successfully found: ', costume);
-                display($('#your-costume'), newCostume);
-            })
+          });
+  });
+});
 
-        console.log(newCostume);
-        return false;
-    });
-
-    // display();
-
-  //Add costume function
+ //Add costume function
 
   // function to replace :: $('#costume').append('<li>' + costume.theme + ' - ' + costume.wearer + '</li>');
   // function addThemeToDropdown() {

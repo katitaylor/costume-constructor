@@ -27,7 +27,7 @@ var mongoose = require('mongoose');
 mongoose.connect(process.env.DB_CONN_COSTUME);
 
 app.use('/', routes);
-// app.use('/api/v1/costumes', costumes);
+app.use('/api/v1/costumes', costumes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
