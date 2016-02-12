@@ -22,7 +22,8 @@ $(function() {
 
             function addCostume(costumeList, costumes) {
               for (var i=0; i < costumes.length; i++) {
-                var listItem = $('<li>' + costumes[i].costume + '</li>');
+                // var listItem = $('<li>' + costumes[i].costume + '</li>');
+                var listItem = $('<li><h3>' + costumes[i].costume + '</h3><img src=" '+ costumes[i].image +' "></li>');
                 costumeList.append(listItem);
               }
             }
