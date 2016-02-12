@@ -2,13 +2,14 @@ var express = require('express');
 var router = express.Router();
 var Costume = require('../../../models/costume');
 
-router.get('/:id', function(req, res) {
+router.get('/', function(req, res) {
+
     Costume.find({
-      wearer: req.body.wearer,
-      theme: req.body.theme
+      person: req.query.person,
+      theme: req.query.theme
     }, function(err, results) {
         if (err) throw err;
-        res.render('index');
+        res.json(results);
     });
 });
 
