@@ -41,9 +41,9 @@ body {
 
 .btn {
   display: block;
-  position: relative;
+  position: absolute;
   width: 100px;
-  height: 80px;
+  height: 40px;
   background-color: #F44336;
  }
 
