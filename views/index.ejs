@@ -5,46 +5,37 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>
-        <%= title%>
+        <%= title %>
     </title>
     <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="stylesheet" href="stylesheets/style.scss">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ <!--    <link rel="stylesheet" href="stylesheets/style.scss"> -->
 </head>
 
 <body>
     <div>
-        <%= title%>
-            <form id="your-costume">
-                <select name="costume[wearer]" id="wearer" placeholder="I am a ...">
+        <%= title %>
+            <form id="your-costume" method="post">
+                <select name="wearer" id="costume-wearer" placeholder="I am a ...">
                     <option value="Child">Child</option>
                     <option value="Adult">Adult</option>
                     <option value="Couple">Couple</option>
                 </select>
-                <select name="costume[theme]" id="theme" placeholder="I might like ...">
-                    <option value="Fairytale">Fairytale</option>
-                    <option value="Animal">Animal</option>
-                    <option value="Post-apocalyptic">Post-apocalyptic</option>
+                <select name="theme" id="costume-theme" placeholder="I might like ...">
+                    <!-- options will be dynamically generated from DB -->
+                    <% for (var i = 0; i < themes.length; i++) { %>
+                      <option><%= themes[i].theme %></option>
+                    <% } %>
                 </select>
 
-            <!--    button -->
+    <input class="btn btn-primary" type="submit" name="submit" value="Search"/>
 
-
-            <p>  <div class="btn">
-                <div class="btn-back">
-                    <p>Are you sure you want to do that?</p>
-                    <button class="yes">Yes</button>
-                    <button class="no">No</button>
-                </div>
-                <div class="btn-front">Delete</div>
-    </div>
-<!--     <p class="description">Try clicking different sides of the button – <a href="http://lab.hakim.se/" target="_blank">lab.hakim.se</a></p>
- -->
     </form>
-</body>
-<ul id="costumes">
-</ul>
+
+<div id="costumes">
+
 </div>
+
+
 <script type="text/javascript" src="//code.jquery.com/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/javascripts/main.js"></script>

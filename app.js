@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var costumes = require('./routes/costumes');
+var costumes = require('./routes/api/v1/costumes');
 
 var app = express();
 
@@ -27,7 +27,7 @@ var mongoose = require('mongoose');
 mongoose.connect(process.env.DB_CONN_COSTUME);
 
 app.use('/', routes);
-app.use('/costumes', costumes);
+app.use('/api/v1/costumes', costumes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
