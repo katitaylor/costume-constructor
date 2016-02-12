@@ -1,7 +1,10 @@
 # costume-constructor
 A one-page (SPA) app to help narrow down costume ideas.
 
-This application was created using Express, Node.js, MongoDB, mongoose and AJAX.
+This application was created using Express, Node.js, MongoDB, mongoose, AJAX, and deployed on Heroku.
+
+The app can be publicly viewed at:
+http://arcane-caverns-39589.herokuapp.com/
 
 With only one-week to design, build, and implement, I kept my MVP requirements low.
 
