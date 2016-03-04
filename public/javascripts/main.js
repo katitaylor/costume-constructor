@@ -27,15 +27,6 @@ $(function() {
                 costumeList.append(listItem);
               }
             }
-
+-
     });
 });
-
-// var listItem = $('<li><h3>' + costumes[i].costume + '</h3><img src=" '+ costumes[i].image +' "></li>');
-// function addDoughnutToList(doughnutsList, style, flavor) {
-//     var listItem = $('<li>' + style + ' - ' + flavor + '</li>');
-//     listItem.click(function(event) {
-//         deleteDoughnut(listItem);
-//     });
-//     doughnutsList.prepend(listItem);
-// };

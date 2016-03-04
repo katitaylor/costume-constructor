@@ -12,9 +12,11 @@
 </head>
 
 <body>
+    <div>warning :: this is an mvp project and not all queries have images or proper sizing.</div>
+    <p>
     <div>
         <%= title %>
-            <form id="your-costume" method="post">
+            <form id="your-costume" method="get">
                 <select name="wearer" id="costume-wearer" placeholder="I am a ...">
                     <option value="Child">Child</option>
                     <option value="Adult">Adult</option>
@@ -30,10 +32,10 @@
     <p><input class="btn" type="submit" name="submit" value="Costume Me!"/>
 
     </form>
-
 <div id="costumes">
 
 </div>
+
 
 
 <script type="text/javascript" src="//code.jquery.com/jquery-2.2.0.min.js"></script>
